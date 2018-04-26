@@ -5,6 +5,7 @@ namespace Igrejanet\Support\ServiceProviders;
 use Igrejanet\Support\DataPatterns;
 use Igrejanet\Support\Date;
 use Igrejanet\Support\Documents;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -22,7 +23,13 @@ class SupportServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::directive('toSql', function($date) {
+            return \Date::toSql($date);
+        });
 
+        Blade::directive('toBr', function ($date) {
+            return \Date::toBr($date);
+        });
     }
 
     /**
