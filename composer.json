@@ -28,14 +28,16 @@
     "require-dev": {
         "phpunit/phpunit": "^6.0"
     },
-    "extras" : {
-        "providers": [
-            "Igrejanet\\Support\\ServiceProviders\\SupportServiceProvider"
-        ],
-        "aliases": {
-            "DataPatterns": "Igrejanet\\Support\\Facades\\DataPatternsFacade",
-            "Date": "Igrejanet\\Support\\Facades\\DateFacade",
-            "Documents": "Igrejanet\\Support\\Facades\\DocumentsFacade"
+    "extra" : {
+        "laravel": {
+            "providers": [
+                "Igrejanet\\Support\\ServiceProviders\\SupportServiceProvider"
+            ],
+            "aliases": {
+                "DataPatterns": "Igrejanet\\Support\\Facades\\DataPatternsFacade",
+                "Date": "Igrejanet\\Support\\Facades\\DateFacade",
+                "Documents": "Igrejanet\\Support\\Facades\\DocumentsFacade"
+            }
         }
     }
 }
