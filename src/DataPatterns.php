@@ -75,8 +75,12 @@ class DataPatterns
      * @param   bool  $asUpperCase
      * @return  string
      */
-    public function normatizeName(string $name, bool $asUpperCase = false)
+    public function normatizeName(string $name = null, bool $asUpperCase = false)
     {
+        if ( ! $name ) {
+            return $name;
+        }
+        
         $name   = Utils::normatizeName($name, 'de,do,da,e,dos');
         $name   = Utils::unaccents($name);
 
