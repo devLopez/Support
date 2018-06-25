@@ -42,7 +42,7 @@ class DataPatternsTest extends TestCase
         $patterns = new DataPatterns();
 
         $pis    = '32530719760';
-        $masked = '325.30719.76-0';
+        $masked = '325.30719.76/0';
 
         $this->assertEquals($masked, $patterns->maskPIS($pis));
     }
