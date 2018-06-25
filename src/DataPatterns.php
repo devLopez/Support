@@ -55,7 +55,7 @@ class DataPatterns
     public function maskPIS($pis = null)
     {
         return ( $pis )
-            ? Utils::mask(Utils::unmask($pis), '###.#####.##-#')
+            ? Utils::mask(Utils::unmask($pis), '###.#####.##/#')
             : null;
     }
 
