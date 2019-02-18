@@ -6,13 +6,29 @@ namespace Igrejanet\Support;
  * Documents
  *
  * @author  Matheus Lopes Santos <fale_com_lopez@hotmail.com>
- * @version 1.0.0
- * @since   26/04/2018
+ * @version 1.0.1
+ * @since   18/02/2019
  * @package Igrejanet\Support
  * @see     https://forum.imasters.com.br/topic/400293-validate_br/
  */
 class Documents
 {
+    /**
+     * @var array
+     */
+    protected $numerosInvalidos = [
+        '00000000000',
+        '11111111111',
+        '22222222222',
+        '33333333333',
+        '44444444444',
+        '55555555555',
+        '66666666666',
+        '77777777777',
+        '88888888888',
+        '99999999999',
+    ];
+
     /**
      * @param   string  $cpf
      * @return  bool
@@ -21,17 +37,7 @@ class Documents
     {
         $cpf = sprintf('%011s', preg_replace('{\D}', '', $cpf));
 
-        if ( (strlen($cpf) != 11)
-            || ($cpf == '00000000000')
-            || ($cpf == '11111111111')
-            || ($cpf == '22222222222')
-            || ($cpf == '33333333333')
-            || ($cpf == '44444444444')
-            || ($cpf == '55555555555')
-            || ($cpf == '66666666666')
-            || ($cpf == '77777777777')
-            || ($cpf == '88888888888')
-            || ($cpf == '99999999999') ) {
+        if ( (strlen($cpf) != 11) || intval($cpf) == 0 || in_array($cpf, $this->numerosInvalidos ) ) {
             return false;
         }
 
@@ -81,15 +87,28 @@ class Documents
     {
         $pis = sprintf('%011s', preg_replace('{\D}', '', $pis));
 
-        if ( (strlen($pis) != 11) || (intval($pis) == 0) ) {
+        if ( strlen($pis) != 11 || intval($pis) == 0 ) {
             return false;
         }
 
-        for ( $d = 0, $p = 2, $c = 9; $c >= 0; $c--, ($p < 9) ? $p++ : $p = 2 ) {
-            $d += $pis[$c] * $p;
+        if ( in_array($pis, $this->numerosInvalidos) ) {
+            return false;
         }
 
-        return ( $pis[10] == (((10 * $d) % 11) % 10) );
+        $digitos    = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+        $soma       = 0;
+
+        for ( $i = 0; $i < 10; $i++ ) {
+            $soma += $pis[$i] * $digitos[$i];
+        }
+
+        $digitoVerificador = ( 11 - ($soma % 11) );
+
+        if ( $digitoVerificador == 10 || $digitoVerificador == 11 ) {
+            $digitoVerificador = 0;
+        }
+
+        return $pis[10] == $digitoVerificador;
     }
 
     /**
