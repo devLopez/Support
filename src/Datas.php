@@ -48,7 +48,7 @@ class Datas
      * @param int|null $month
      * @return array|mixed
      */
-    public static function months(int $month = null)
+    public static function meses(int $month = null)
     {
         $months = [
             1   => 'Janeiro',
