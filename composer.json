@@ -34,8 +34,7 @@
                 "Igrejanet\\Support\\ServiceProviders\\SupportServiceProvider"
             ],
             "aliases": {
-                "DataPatterns": "Igrejanet\\Support\\Facades\\DataPatternsFacade",
-                "Date": "Igrejanet\\Support\\Facades\\DateFacade"
+                "DataPatterns": "Igrejanet\\Support\\Facades\\DataPatternsFacade"
             }
         }
     }

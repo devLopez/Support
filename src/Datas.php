@@ -6,50 +6,49 @@ use Carbon\Carbon;
 use InvalidArgumentException;
 
 /**
- * Date
+ * Datas
  *
  * @author  Matheus Lopes Santos <fale_com_lopez@hotmail.com>
- * @version 1.0.0
- * @since   25/04/2018
+ * @version 2.0.0
  * @package Igrejanet\Support
  */
-class Date
+class Datas
 {
     const TIMEZONE = 'America/Sao_Paulo';
 
     /**
-     * @param   null|string  $date
-     * @param   string  $format
-     * @return  null|string
+     * @param string|null $date
+     * @param string      $format
+     * @return string
      */
-    public function toBr($date = null, $format = 'd/m/Y')
+    public static function toBr(string $date = null, $format = 'd/m/Y')
     {
         if ( $date ) {
-            return $this->format($date, $format);
+            return static::format($date, $format);
         }
 
         return $date;
     }
 
     /**
-     * @param   null|string  $date
-     * @param   string  $format
-     * @return  null|string
+     * @param string|null $date
+     * @param string      $format
+     * @return string
      */
-    public function toSql($date = null, $format = 'Y-m-d')
+    public static function toSql(string $date = null, $format = 'Y-m-d')
     {
         if ( $date ) {
-            return $this->format($date, $format, 'd/m/Y');
+            return static::format($date, $format, 'd/m/Y');
         }
 
         return $date;
     }
 
     /**
-     * @param   int|null $month
-     * @return  array|mixed
+     * @param int|null $month
+     * @return array|mixed
      */
-    public function months(int $month = null)
+    public static function months(int $month = null)
     {
         $months = [
             1   => 'Janeiro',
@@ -67,7 +66,7 @@ class Date
         ];
 
         if ( $month ) {
-            if ($month >= 1 && $month <= 12) {
+            if ( $month >= 1 && $month <= 12 ) {
                 return $months[$month];
             }
 
@@ -81,7 +80,7 @@ class Date
      * @param   string  $format
      * @return  string
      */
-    public function today($format = 'd/m/Y')
+    public static function today($format = 'd/m/Y')
     {
         return Carbon::today(self::TIMEZONE)->format($format);
     }
@@ -90,19 +89,19 @@ class Date
      * @param   string  $format
      * @return  string
      */
-    public function now($format = 'Y-m-d H:i:s')
+    public static function now($format = 'Y-m-d H:i:s')
     {
         return Carbon::now(self::TIMEZONE)->format($format);
     }
 
     /**
-     * @param   string  $date
-     * @param   string  $format
-     * @param   string  $primaryFormat
-     * @return  string
+     * @param string $date
+     * @param string $format
+     * @param string $oldFormat
+     * @return string
      */
-    public function format($date, $format = 'd/m/Y', $primaryFormat = 'Y-m-d')
+    public static function format($date, $format = 'd/m/Y', $oldFormat = 'Y-m-d')
     {
-        return Carbon::createFromFormat($primaryFormat, $date)->format($format);
+        return Carbon::createFromFormat($oldFormat, $date)->format($format);
     }
 }

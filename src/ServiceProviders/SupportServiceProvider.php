@@ -3,8 +3,7 @@
 namespace Igrejanet\Support\ServiceProviders;
 
 use Igrejanet\Support\DataPatterns;
-use Igrejanet\Support\Date;
-use Igrejanet\Support\Documentos;
+use Igrejanet\Support\Datas;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,8 +11,7 @@ use Illuminate\Support\ServiceProvider;
  * SupportServiceProvider
  *
  * @author  Matheus Lopes Santos <fale_com_lopez@hotmail.com>
- * @version 1.0.0
- * @since   26/04/2018
+ * @version 1.1.0
  * @package Igrejanet\Support\ServiceProviders
  */
 class SupportServiceProvider extends ServiceProvider
@@ -23,12 +21,14 @@ class SupportServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::directive('toSql', function($date) {
-            return \Date::toSql($date);
+        Blade::directive('toSql', function($date)
+        {
+            return Datas::toSql($date);
         });
 
-        Blade::directive('toBr', function ($date) {
-            return \Date::toBr($date);
+        Blade::directive('toBr', function ($date)
+        {
+            return Datas::toBr($date);
         });
     }
 
@@ -37,16 +37,9 @@ class SupportServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(DataPatterns::class, function() {
+        $this->app->singleton(DataPatterns::class, function()
+        {
             return new DataPatterns();
-        });
-
-        $this->app->singleton(Date::class, function() {
-            return new Date();
-        });
-
-        $this->app->singleton(Documentos::class, function () {
-            return new Documentos();
         });
     }
 }

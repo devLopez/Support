@@ -24,14 +24,14 @@ e manipulação de dados
 namespace MeuNamespace;
 
 use Igrejanet\Support\DataPatterns;
-use Igrejanet\Support\Date;
+use Igrejanet\Support\Datas;
 use Igrejanet\Support\Documentos;
 
 class MyClass
 {
     public function datas()
     {
-        $date = new Date();
+        $date = new Datas();
         
         // Converte para o Mysql
         $date->toSql('13/04/2017'); // Output: 2017-04-23
