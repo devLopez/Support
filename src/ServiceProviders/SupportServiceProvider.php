@@ -4,7 +4,7 @@ namespace Igrejanet\Support\ServiceProviders;
 
 use Igrejanet\Support\DataPatterns;
 use Igrejanet\Support\Date;
-use Igrejanet\Support\Documents;
+use Igrejanet\Support\Documentos;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -45,8 +45,8 @@ class SupportServiceProvider extends ServiceProvider
             return new Date();
         });
 
-        $this->app->singleton(Documents::class, function () {
-            return new Documents();
+        $this->app->singleton(Documentos::class, function () {
+            return new Documentos();
         });
     }
 }

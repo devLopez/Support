@@ -6,17 +6,16 @@ namespace Igrejanet\Support;
  * Documents
  *
  * @author  Matheus Lopes Santos <fale_com_lopez@hotmail.com>
- * @version 1.0.1
- * @since   18/02/2019
+ * @version 2.0.0
  * @package Igrejanet\Support
  * @see     https://forum.imasters.com.br/topic/400293-validate_br/
  */
-class Documents
+class Documentos
 {
     /**
      * @var array
      */
-    protected $numerosInvalidos = [
+    protected static $numerosInvalidos = [
         '00000000000',
         '11111111111',
         '22222222222',
@@ -33,11 +32,11 @@ class Documents
      * @param   string  $cpf
      * @return  bool
      */
-    public function CPF($cpf) : bool
+    public static function cpf($cpf) : bool
     {
         $cpf = sprintf('%011s', preg_replace('{\D}', '', $cpf));
 
-        if ( (strlen($cpf) != 11) || intval($cpf) == 0 || in_array($cpf, $this->numerosInvalidos ) ) {
+        if ( (strlen($cpf) != 11) || intval($cpf) == 0 || in_array($cpf, static::$numerosInvalidos ) ) {
             return false;
         }
 
@@ -58,7 +57,7 @@ class Documents
      * @param   string  $cnpj
      * @return  bool
      */
-    public function CNPJ($cnpj) : bool
+    public static function cnpj($cnpj) : bool
     {
         $cnpj = sprintf('%014s', preg_replace('{\D}', '', $cnpj));
 
@@ -83,7 +82,7 @@ class Documents
      * @param   string  $pis
      * @return  bool
      */
-    public function PIS($pis) : bool
+    public static function pis($pis) : bool
     {
         $pis = sprintf('%011s', preg_replace('{\D}', '', $pis));
 
@@ -91,7 +90,7 @@ class Documents
             return false;
         }
 
-        if ( in_array($pis, $this->numerosInvalidos) ) {
+        if ( in_array($pis, static::$numerosInvalidos) ) {
             return false;
         }
 
@@ -115,7 +114,7 @@ class Documents
      * @param   string  $cnh
      * @return  bool
      */
-    public function CNH($cnh) : bool
+    public static function cnh($cnh) : bool
     {
         $cnh = sprintf('%011s', preg_replace('{\D}', '', $cnh));
 
@@ -143,7 +142,7 @@ class Documents
      * @param   string  $te
      * @return  bool
      */
-    public function tituloEleitoral($te) : bool
+    public static function tituloEleitoral($te) : bool
     {
         $te = sprintf('%012s', preg_replace('{\D}', '', $te));
         $uf = intval(substr($te, 8, 2));

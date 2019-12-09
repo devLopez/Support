@@ -25,7 +25,7 @@ namespace MeuNamespace;
 
 use Igrejanet\Support\DataPatterns;
 use Igrejanet\Support\Date;
-use Igrejanet\Support\Documents;
+use Igrejanet\Support\Documentos;
 
 class MyClass
 {
@@ -46,11 +46,11 @@ class MyClass
     
     public function validations()
     {
-        $documents = new Documents();
+        $documents = new Documentos();
         
         // Além destes métodos, ainda temos a validação da CNH e título eleitoral
-        $documents->CPF('111.111.111-11');
-        $documents->CNPJ('11.111.111/1111-11');
+        $documents->cpf('111.111.111-11');
+        $documents->cnpj('11.111.111/1111-11');
         $documents->PIS('111.11111.11-1');
     }
     

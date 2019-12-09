@@ -2,7 +2,7 @@
 
 namespace Igrejanet\Support\Facades;
 
-use Igrejanet\Support\Documents;
+use Igrejanet\Support\Documentos;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -20,6 +20,6 @@ class DocumentsFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return Documents::class;
+        return Documentos::class;
     }
 }
