@@ -35,8 +35,7 @@
             ],
             "aliases": {
                 "DataPatterns": "Igrejanet\\Support\\Facades\\DataPatternsFacade",
-                "Date": "Igrejanet\\Support\\Facades\\DateFacade",
-                "Documents": "Igrejanet\\Support\\Facades\\DocumentsFacade"
+                "Date": "Igrejanet\\Support\\Facades\\DateFacade"
             }
         }
     }
