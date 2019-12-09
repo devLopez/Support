@@ -26,9 +26,9 @@ class DateTest extends TestCase
      */
     public function testMonths()
     {
-        $months     = Datas::months();
-        $month      = Datas::months(4);
-        $invalid    = Datas::months(13);
+        $months     = Datas::meses();
+        $month      = Datas::meses(4);
+        $invalid    = Datas::meses(13);
 
         $this->assertInternalType('array', $months);
         $this->assertEquals('Outubro', $months[10]);
