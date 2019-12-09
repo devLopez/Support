@@ -2,24 +2,25 @@
 
 namespace Igrejanet\Support;
 
-use JansenFelipe\Utils\Utils;
-use JansenFelipe\Utils\Mask;
+use JansenFelipe\Utils\{
+    Utils,
+    Mask
+};
 
 /**
- * DataPatterns
+ * Padroniza
  *
  * @author  Matheus Lopes Santos <fale_com_lopez@hotmail.com>
- * @version 1.0.0
- * @since   26/04/2018
+ * @version 2.0.0
  * @package Igrejanet\Support
  */
-class DataPatterns
+class Padroniza
 {
     /**
-     * @param   null|string  $cpf
-     * @return  null|string
+     * @param string|null $cpf
+     * @return string|null
      */
-    public function maskCPF($cpf = null)
+    public static function cpf(string $cpf = null)
     {
         return ( $cpf )
             ? Utils::mask(Utils::unmask($cpf), '###.###.###-##')
@@ -27,10 +28,10 @@ class DataPatterns
     }
 
     /**
-     * @param   null|string  $cnpj
-     * @return  null|string
+     * @param string|null $cnpj
+     * @return string|null
      */
-    public function maskCNPJ($cnpj = null)
+    public static function cnpj(string $cnpj = null)
     {
         return ( $cnpj )
             ? Utils::mask(Utils::unmask($cnpj), '##.###.###/####-##')
@@ -38,10 +39,10 @@ class DataPatterns
     }
 
     /**
-     * @param   null|string  $fone
-     * @return  null|string
+     * @param string|null $fone
+     * @return string|null
      */
-    public function maskFone($fone = null)
+    public static function fone(string $fone = null)
     {
         return ( $fone )
             ? Utils::mask(Utils::unmask($fone), Mask::TELEFONE)
@@ -49,10 +50,10 @@ class DataPatterns
     }
 
     /**
-     * @param   null|string  $pis
-     * @return  null|string
+     * @param string|null $pis
+     * @return string|null
      */
-    public function maskPIS($pis = null)
+    public static function pis(string $pis = null)
     {
         return ( $pis )
             ? Utils::mask(Utils::unmask($pis), '###.#####.##/#')
@@ -60,10 +61,10 @@ class DataPatterns
     }
 
     /**
-     * @param   null|string  $cep
-     * @return  null|string
+     * @param string|null $cep
+     * @return string|null
      */
-    public function maskCEP($cep = null)
+    public static function cep(string $cep = null)
     {
         return ( $cep )
             ? Utils::mask(Utils::unmask($cep), '#####-###')
@@ -71,11 +72,11 @@ class DataPatterns
     }
 
     /**
-     * @param   string  $name
-     * @param   bool  $asUpperCase
-     * @return  string
+     * @param string|null $name
+     * @param bool        $asUpperCase
+     * @return string
      */
-    public function normatizeName(string $name = null, bool $asUpperCase = false)
+    public static function nome(string $name = null, bool $asUpperCase = false)
     {
         if ( ! $name ) {
             return $name;

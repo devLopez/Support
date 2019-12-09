@@ -2,7 +2,6 @@
 
 namespace Igrejanet\Support\ServiceProviders;
 
-use Igrejanet\Support\DataPatterns;
 use Igrejanet\Support\Datas;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -37,9 +36,6 @@ class SupportServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(DataPatterns::class, function()
-        {
-            return new DataPatterns();
-        });
+        //
     }
 }
