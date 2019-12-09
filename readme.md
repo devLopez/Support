@@ -23,7 +23,7 @@ e manipulação de dados
 
 namespace MeuNamespace;
 
-use Igrejanet\Support\DataPatterns;
+use Igrejanet\Support\Padroniza;
 use Igrejanet\Support\Datas;
 use Igrejanet\Support\Documentos;
 
@@ -56,7 +56,7 @@ class MyClass
     
     public function dataNormatization()
     {
-        $data = new DataPatterns();
+        $data = new Padroniza();
      
         // Aqui ainda temos mascara para telefone (8 ou 9 dígitos)
         // CEP, PIS

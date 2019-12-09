@@ -32,10 +32,7 @@
         "laravel": {
             "providers": [
                 "Igrejanet\\Support\\ServiceProviders\\SupportServiceProvider"
-            ],
-            "aliases": {
-                "DataPatterns": "Igrejanet\\Support\\Facades\\DataPatternsFacade"
-            }
+            ]
         }
     }
 }
