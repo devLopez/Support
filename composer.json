@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "php": "^7.0",
-        "nesbot/carbon": "1.22.1",
+        "php": "^7.1",
+        "nesbot/carbon": "^2.0",
         "jansenfelipe/utils": "^2.0"
     },
     "autoload": {

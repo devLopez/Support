@@ -14,6 +14,8 @@ Para instalar, utilize o composer
 $ composer require igrejanet/support
 ``` 
 
+Para versões do Laravel <5.7, utilizar a versão 2.1.4
+
 ## Utilização
 Inicialmente, o pacote conta com alguns validadores, métodos para normatização de dados
 e manipulação de dados
